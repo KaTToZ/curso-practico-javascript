@@ -1,0 +1,74 @@
+.figures {
+    align-items: center;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
+
+    &__title {
+        color: white;
+        font: 50px Verdana, Geneva, Tahoma, sans-serif;
+        margin-bottom: 20px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 800px;
+    }
+
+    &__label {
+        color: white;
+        font: 15px Verdana, Geneva, Tahoma, sans-serif;
+        margin-bottom: 10px;
+    }
+
+    &__select {
+        border-radius: 0;
+        border: 0;
+        flex-grow: 1;
+        font: 20px Verdana, Geneva, Tahoma, sans-serif;
+        flex-grow: 1;
+        padding: 15px;
+    }
+
+    &__input {
+        flex-grow: 1;
+        font: 20px Verdana, Geneva, Tahoma, sans-serif;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        width: 100%;
+
+        &--result {
+            color: white;
+        }
+
+    }
+
+    &__group {
+        display: flex;
+        justify-content: center;
+
+        &--button {
+            padding: 10px;
+        }
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 10px;
+    }
+
+    &__button {
+        @extend %btn-primary;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+}

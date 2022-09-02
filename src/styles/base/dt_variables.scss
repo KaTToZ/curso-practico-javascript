@@ -1,0 +1,280 @@
+//----------------------------- Escala Tonal -----------------------------------
+//------------------------------------------------------------------------------
+$light-color:                          #ffffff;                      //fff
+$light-backup:                         darken($light-color, 2.6%);   //#f8f8f8
+$practically-light-color:              darken($light-color, 10%);    //#e6e6e6
+$almost-light-color:                   darken($light-color, 20%);    //#ccc
+$nearly-light-color:                   darken($light-color, 30%);    //#b3b3b3
+$mid-light-color:                      darken($light-color, 40%);    //#999
+$mid-color:                            darken($light-color, 50%);    //#808080
+$mid-dark-color:                       darken($light-color, 60%);    //#666
+$nearly-dark-color:                    darken($light-color, 70%);    //#4d4d4d
+$almost-dark-color:                    darken($light-color, 80%);    //#333
+$practically-dark-color:               darken($light-color, 90%);    //#1a1a1a
+$dark-color:                           darken($light-color, 100%);   //#000
+
+
+//---------------------------- Colores Base ------------------------------------
+//------------------------------------------------------------------------------
+$main-color:                           rgb(0, 255, 0) !default;       // Color que más se repite en la web
+$custom-color:                         $nearly-light-color !default;      // Segundo color que más se repite en la web
+$corporate-color:                      $practically-dark-color !default;  // Tercer color que más se repite en la web
+
+$success-color:                        #28a745;
+$danger-color:                         #dc3545;
+
+
+//---------------------------- Fuentes Base ------------------------------------
+//------------------------------------------------------------------------------
+$main-font:                            Verdana, Geneva, Tahoma, sans-serif !default;  // Tipografía que más se repite en la web, ejemplo parrafos, span y enlaces
+$main-font-light:                      arial !default;
+$main-font-bold:                       arial !default;
+$main-font-italic:                     arial !default;
+
+$custom-font:                          arial !default;   // Segunda tipografía que más se repite en la web, ejemplo Hs
+$custom-font-light:                    arial !default;
+$custom-font-bold:                     arial !default;
+$custom-font-italic:                   arial !default;
+
+
+//------------------------------ Botones ---------------------------------------
+//------------------------------------------------------------------------------
+$btn-font:                             $main-font !default;
+$btn-size:                             1.7rem !default;
+$btn-transition:                       all .5s !default;
+$btn-transform:                        uppercase !default;
+$btn-width:                            auto !default;
+$btn-border-radius:                    0 !default;
+
+$btn-primary-bg:                       $main-color !default;
+$btn-primary-color:                    $dark-color !default;
+$btn-primary-height:                   auto !default;
+$btn-primary-padding:                  15px !default;
+$btn-primary-border:                   0 !default;
+
+$btn-secondary-bg:                     $practically-light-color !default;
+$btn-secondary-color:                  $light-color !default;
+$btn-secondary-height:                 5rem !default;
+$btn-secondary-padding:                0 2rem !default;
+$btn-secondary-border:                 0 !default;
+
+
+//-------------------------------- Links ---------------------------------------
+//------------------------------------------------------------------------------
+$link-base-align-items:                center !default;
+$link-base-bg-hover:                   transparent !default;
+$link-base-bg:                         transparent !default;
+$link-base-border-radius:              0 !default;
+$link-base-border:                     0 !default;
+$link-base-color-hover:                $light-color !default;
+$link-base-color:                      $light-color !default;
+$link-base-direction:                  row-reverse !default;
+$link-base-font:                       $main-font !default;
+$link-base-icon-color-hover:           $light-color !default;
+$link-base-icon-color:                 $light-color !default;
+$link-base-icon-display:               false !default;
+$link-base-icon-size:                  1.5rem !default;
+$link-base-icon-transition:            color .5s !default;
+$link-base-icon:                       ico-l-arrow-right !default;
+$link-base-justify-content:            center !default;
+$link-base-margin:                     1rem !default;
+$link-base-padding:                    0 !default;
+$link-base-size:                       1.5rem !default;
+$link-base-transform:                  inherit !default;
+
+//------------------------------ Generales -------------------------------------
+//------------------------------------------------------------------------------
+$font-icons-base:                      icons-base !default;
+$font-face-base:                       $font-icons-base !default;
+$font-size-html:                       62.5% !default;
+$font-size-tags:                       100% !default; // Font size de todos las etiquetas
+$path-font-face-base:                  '/dynamic_templates/static/fonts' !default;
+
+
+//---------------------------- Resoluciones ------------------------------------
+//------------------------------------------------------------------------------
+$screen-xs:                            341px !default;   // Small screen / phone
+$screen-sm:                            569px !default;   // Small screen / phone
+$screen-md-min:                        768px !default;   // Medium screen / table
+$screen-md:                            769px !default;   // Medium screen / table
+$screen-lg-min:                        1024px !default;  // large screen / desktop
+$screen-lg:                            1025px !default;  // large screen / desktop
+$screen-xl:                            1201px !default;  //Extra large screen/wide desktop
+
+//---------------------------- P Base ------------------------------------------
+//------------------------------------------------------------------------------
+$p-color:                              $almost-dark-color !default;
+$p-size:                               1.5rem !default;
+$p-font:                               $main-font !default;
+$p-line-height:                        1.2 !default;
+$p-align:                              left !default;
+$p-align-responsive:                   left !default;
+
+//---------------------------- Título Base -------------------------------------
+//------------------------------------------------------------------------------
+$title-base-color:                     $almost-dark-color !default;
+$title-base-font:                      $main-font !default;
+$title-base-size:                      2rem !default;
+$title-base-size-responsive:           2.5rem !default;
+$title-base-transform:                 inherit !default;
+
+
+//--------------------------- Subtítulo Base -----------------------------------
+//------------------------------------------------------------------------------
+$subtitle-base-color:                  $almost-dark-color !default;
+$subtitle-base-font:                   $main-font !default;
+$subtitle-base-size:                   2rem !default;
+$subtitle-base-size-responsive:        2rem !default;
+$subtitle-base-transform:              inherit !default;
+
+
+//---------------------------Título Inner Base ---------------------------------
+//------------------------------------------------------------------------------
+$title-inner-base-color:               $title-base-color !default;
+$title-inner-base-font:                $title-base-font !default;
+$title-inner-base-size-responsive:     2rem !default;
+$title-inner-base-size:                $title-base-size !default;
+$title-inner-base-transform:           $title-base-transform !default;
+
+
+//------------------------ Subtítulo Inner Base --------------------------------
+//------------------------------------------------------------------------------
+$subtitle-inner-base-color:            $subtitle-base-color !default;
+$subtitle-inner-base-font:             $subtitle-base-font !default;
+$subtitle-inner-base-size:             $subtitle-base-size !default;
+$subtitle-inner-base-transform:        $subtitle-base-transform !default;
+
+//------------------------------ Modales ---------------------------------------
+//------------------------------------------------------------------------------
+$modal-bg:                             rgba($dark-color, .6) !default;
+$modal-inner-bg:                       $light-color !default;
+$modal-width:                          97rem !default;
+
+$modal-close-bg-hover:                 $custom-color !default;
+$modal-close-bg:                       $main-color !default;
+$modal-close-color:                    $light-color !default;
+$modal-close-ico-size:                 2.2rem !default;
+$modal-close-ico:                      ico-plus2 !default;
+$modal-close-rotate:                   rotate(45deg) !default;
+$modal-close-size:                     0;
+
+$modal-title-color:                    $light-color !default;
+$modal-title-font:                     $main-font !default;
+$modal-title-size:                     1.4rem !default;
+$modal-title-transform:                inherit !default;
+
+$modal-arrow-ico-right:                ico-arrow-right2 !default;
+$modal-arrow-border:                   none !default;
+$modal-arrow-color:                    $light-color !default;
+$modal-arrow-ico-left:                 ico-arrow-left2 !default;
+$modal-arrow-size:                     2.2rem !default;
+
+//------------------------------ Box shadow ------------------------------------
+//------------------------------------------------------------------------------
+$box-shadow-base:                      0 0 1.5rem rgba($dark-color, .1) !default;
+
+
+//------------------------------ Indicadores -----------------------------------
+//------------------------------------------------------------------------------
+$dot-base-bottom:                      2rem !default;
+$dot-base-bg:                          $light-color !default;
+$dot-base-border:                      0 !default;
+$dot-base-border-radius:               2.5rem !default;
+$dot-base-size:                        1.5rem !default;
+$dot-base-margin:                      .5rem !default;
+$dot-base-active-bg:                   $main-color !default;
+$dot-base-active-border:               $main-color !default;
+
+
+//-------------------------- Background modulos --------------------------------
+//------------------------------------------------------------------------------
+$bg-base:                              transparent !default;
+
+
+//-------------------------------Width body-------------------------------------
+//------------------------------------------------------------------------------
+$body-width:                           none !default;
+
+
+//----------------------Padding base para páginas internas----------------------
+//------------------------------------------------------------------------------
+$padding-base-bottom:                  5rem !default;
+$padding-base-left:                    5rem !default;
+$padding-base-right:                   5rem !default;
+$padding-base-top:                     5rem !default;
+
+
+//------------------------------- Container Base -------------------------------
+//------------------------------------------------------------------------------
+$container-base-width:                 120rem !default;
+$container-base-padding:               0 !default;
+$container-base-padding-responsive:    2rem !default;
+
+
+//---------------------- Elementos de un formulario ----------------------------
+//------------------------------------------------------------------------------
+$placeholder-base-color:               $p-color;
+$placeholder-base-size:                $p-size;
+$placeholder-base-font:                $p-font;
+$placeholder-base-line-height:         $p-line-height;
+
+$label-base-color:                     $p-color;
+$label-base-size:                      $p-size;
+$label-base-font:                      $p-font;
+$label-base-line-height:               $p-line-height;
+$label-base-magin:                     1rem 0;
+$label-base-transform:                 inherit;
+
+$input-base-bg:                        transparent;
+$input-base-border-radius:             $btn-border-radius;
+$input-base-border:                    .1rem solid $almost-light-color;
+$input-base-color:                     $p-color;
+$input-base-font:                      $p-font;
+$input-base-height:                    5rem;
+$input-base-line-height:               $p-line-height;
+$input-base-padding:                   1rem;
+$input-base-shadow:                    0;
+$input-base-size:                      $p-size;
+$input-base-transform:                 inherit;
+$input-base-transition:                none;
+
+$textarea-base-min-height:             15rem;
+
+
+//---------------------- Flechas de los carruseles -----------------------------
+//------------------------------------------------------------------------------
+$arrow-base-name-left:                 arrow-left;
+$arrow-base-name-right:                arrow-right;
+$arrow-base-bg-hover:                  transparent;
+$arrow-base-bg:                        transparent;
+$arrow-base-border-radius:             0;
+$arrow-base-border:                    0;
+$arrow-base-color:                     $nearly-dark-color;
+$arrow-base-color-hover:               $main-color;
+$arrow-base-switch:                    flex;
+$arrow-base-icon:                      ico-arrow-simple;
+$arrow-base-size:                      5rem;
+$arrow-base-font-size:                 1.2rem;
+$arrow-base-opacity:                   1;
+$arrow-base-position:                  relative;
+
+//-------------------------------- Splide --------------------------------------
+//------------------------------------------------------------------------------
+$splide-border-thumbnail:              .3rem solid transparent;
+$splide-border-thumbnail-active:       .3rem solid $dark-color;
+
+//-------------------------------- Price ---------------------------------------
+//------------------------------------------------------------------------------
+$price-from-color:                     $p-color;
+$price-from-font:                      $p-font;
+$price-from-size:                      $p-size;
+$price-from-transform:                 inherit;
+
+$price-value-color:                    $p-color;
+$price-value-font:                     $p-font;
+$price-value-size:                     4rem;
+
+$price-taxes-color:                    $p-color;
+$price-taxes-font:                     $p-font;
+$price-taxes-size:                     $p-size;
+$price-taxes-transform:                inherit;

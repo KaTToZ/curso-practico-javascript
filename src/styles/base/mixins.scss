@@ -1,0 +1,831 @@
+//---------------------- Centrar Imágen ----------------------------------------
+//------------------------------------------------------------------------------
+@mixin center-bg ($width: auto, $screen: $screen-md, $align: center) {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  @media (min-width: $screen) {
+    justify-content: $align;
+    width: $width;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+//------------------------------ Bg Fix ----------------------------------------
+//------------------------------------------------------------------------------
+@mixin bg-fix ($height: auto) {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: $height;
+}
+
+//---------------------------- Container ---------------------------------------
+//------------------------------------------------------------------------------
+@mixin container (
+  $width:                $container-base-width,
+  $padding:              $container-base-padding,
+  $padding-responsive:   $container-base-padding-responsive,
+  $screen:               $screen-lg
+){
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $padding-responsive;
+  padding-right: $padding-responsive;
+  width: 100%;
+
+  @media (min-width: $screen) {
+    max-width: $width;
+    padding-left: $padding;
+    padding-right: $padding;
+    width: 100%;
+  }
+
+}
+
+//----------------------- Estilos etiquetas de texto  --------------------------
+//------------------------------------------------------------------------------
+@mixin look-text (
+  $strong-font:       $main-font-bold,
+
+  $i-font:            $custom-font,
+
+  $p-color:           $p-color,
+  $p-font:            $p-font,
+  $p-size:            $p-size,
+  $p-line-height:     $p-line-height,
+
+  $link-color:        $p-color,
+  $link-color-hover:  $main-color,
+  $link-font:         $p-font,
+  $link-size:         $p-size,
+  $link-underline:    underline
+){
+
+  strong,
+  b {
+    font-family: $strong-font;
+  }
+
+  a {
+    color: $link-color;
+    font: $link-size $link-font;
+    text-decoration: $link-underline;
+
+    &:hover {
+      color: $link-color-hover;
+    }
+
+  }
+
+  p,
+  strong,
+  i {
+    color: $p-color;
+    font-size: $p-size;
+    line-height: $p-line-height;
+  }
+
+  p {
+    font-family: $p-font;
+  }
+
+  i {
+    font-family: $i-font;
+  }
+
+  strong {
+    font-family: $strong-font;
+  }
+
+  ul {
+    list-style: disc;
+    margin: 1rem 0;
+    padding-left: 4rem;
+
+    li {
+      color: $p-color;
+      font: $p-size $p-font;
+      line-height: $p-line-height;
+    }
+
+  }
+
+}
+
+//---------------------------- Fuentes -----------------------------------------
+//------------------------------------------------------------------------------
+html {
+  font-family: $main-font;
+  font-size:   $font-size-html;
+}
+
+//---------- Estilos genericos para los botones primario y segundario. ---------
+//------------------------------------------------------------------------------
+%btn-primary {
+  align-items: center;
+  background: $btn-primary-bg;
+  border: $btn-primary-border;
+  border-radius: $btn-border-radius;
+  color: $btn-primary-color;
+  cursor: pointer;
+  display: flex;
+  font: $btn-size $btn-font;
+  height: $btn-primary-height;
+  justify-content: center;
+  padding: $btn-primary-padding;
+  text-align: center;
+  text-decoration: none;
+  text-transform: $btn-transform;
+  transition: $btn-transition;
+  width: $btn-width;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-primary {
+  @extend %btn-primary;
+}
+
+%btn-secondary {
+  align-items: center;
+  background: $btn-secondary-bg;
+  border: 0;
+  border-radius: $btn-border-radius;
+  color: $btn-secondary-color;
+  cursor: pointer;
+  display: flex;
+  font: $btn-size $btn-font;
+  height: $btn-secondary-height;
+  justify-content: center;
+  padding: $btn-secondary-padding;
+  text-align: center;
+  text-decoration: none;
+  text-transform: $btn-transform;
+  transition: $btn-transition;
+  width: $btn-width;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-secondary {
+  @extend %btn-secondary;
+}
+
+//-------------------- Estilos para los enlaces generales ----------------------
+//------------------------------------------------------------------------------
+@mixin links(
+  $align-items:       $link-base-align-items,
+  $bg-hover:          $link-base-bg-hover,
+  $bg:                $link-base-bg,
+  $border-radius:     $link-base-border-radius,
+  $border:            $link-base-border,
+  $color-hover:       $link-base-color-hover,
+  $color:             $link-base-color,
+  $direction:         $link-base-direction,
+  $font:              $link-base-font,
+  $icon-color-hover:  $link-base-icon-color-hover,
+  $icon-color:        $link-base-icon-color,
+  $icon-display:      $link-base-icon-display,
+  $icon-size:         $link-base-icon-size,
+  $icon-transition:   $link-base-icon-transition,
+  $icon:              $link-base-icon,
+  $justify-content:   $link-base-justify-content,
+  $margin:            $link-base-margin,
+  $padding:           $link-base-padding,
+  $size:              $link-base-size,
+  $transform:         $link-base-transform
+) {
+
+  align-items: $align-items;
+  background-color: $bg;
+  border: $border;
+  border-radius: $border-radius;
+  color: $color;
+  display: flex;
+  flex-direction: $direction;
+  font: $size $font;
+  justify-content: $justify-content;
+  padding: $padding;
+  text-transform: $transform;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $bg-hover;
+    color: $color-hover;
+
+    &::before {
+      color: $icon-color-hover;
+    }
+
+  }
+
+  @if $icon-display {
+    @extend %#{$icon};
+
+    &::before {
+      color: $icon-color;
+      font-size: $icon-size;
+      margin-left: $margin;
+      margin-right: $margin;
+      transition: $icon-transition;
+    }
+
+  }
+
+}
+
+//----------------- Estilos genericos para los parráfos. -----------------------
+//------------------------------------------------------------------------------
+%p-base {
+  color: $p-color;
+  font: $p-size $p-font;
+  line-height: $p-line-height;
+}
+
+//----------- Estilos genericos para los títulos de las internas ---------------
+//------------------------------------------------------------------------------
+%title-base {
+  @extend %title-base-size-responsive;
+  color: $title-base-color;
+  font: $title-base-size $title-base-font;
+  text-transform: $title-base-transform;
+}
+
+%title-base-size-responsive {
+  @media (max-width: $screen-lg) {
+    font-size: $title-base-size-responsive;
+  }
+}
+
+
+//----------- Estilos genericos para los subtítulos de las internas ------------
+//------------------------------------------------------------------------------
+%subtitle-base {
+  @extend %subtitle-base-size-responsive;
+  color: $subtitle-base-color;
+  font: $subtitle-base-size $subtitle-base-font;
+  text-transform: $subtitle-base-transform;
+}
+
+%subtitle-base-size-responsive {
+  @media (max-width: $screen-lg) {
+    font-size: $subtitle-base-size-responsive;
+  }
+}
+
+//----------- Estilos genericos para los títulos inners de los módulos ------------
+//------------------------------------------------------------------------------
+%title-inner-base-size-responsive {
+  @media (max-width: $screen-lg) {
+    font-size: $title-inner-base-size-responsive;
+  }
+}
+
+//----------- Estilos para generar una linea vertical u horizontal -------------
+//------------------------------------------------------------------------------
+@mixin stick(
+  $bg:         $light-color,
+  $display:    block,
+  $elem:       after,
+  $height:     1.5rem,
+  $margin:     auto 1rem,
+  $radius:     0,
+  $transform:  rotate(0),
+  $width:      .1rem
+) {
+  &::#{$elem} {
+    background-color:  $bg;
+    border-radius:     $radius;
+    content:           '';
+    display:           $display;
+    height:            $height;
+    margin:            $margin;
+    transform:         $transform;
+    width:             $width;
+  }
+}
+
+//----------- Estilos para las tablas ------------------------------------------
+//------------------------------------------------------------------------------
+@mixin table(
+  $table-bg: $light-color,
+  $table-border: $mid-light-color,
+
+  $td-border: $mid-light-color,
+  $td-color: $mid-dark-color,
+  $td-size: $p-size,
+  $td-size-mobile:  1rem,
+  $td-line-height: $p-line-height,
+
+  $td-colspan-bg: $practically-light-color,
+  $td-colspan-color: $almost-dark-color
+) {
+  table {
+    background-color: $table-bg;
+    border-color: $table-border;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+
+    td {
+      border: .1rem solid $td-border;
+      color: $mid-dark-color;
+      font-size: $td-size;
+      line-height: $td-line-height;
+      margin-top: 2.5rem;
+      padding: 1rem;
+      vertical-align: middle;
+
+      @media (max-width: $screen-sm) {
+        font-size: $td-size-mobile;
+      }
+
+      &[colspan='3'] {
+        background-color: $td-colspan-bg;
+        color: $td-colspan-color;
+      }
+    }
+  }
+}
+
+//----------- Estilos para los indicadores de los carruseles -------------------
+//------------------------------------------------------------------------------
+@mixin dots(
+  $dots-display: flex,
+
+  $dot-bg: $dot-base-bg,
+  $dot-border: $dot-base-border,
+  $dot-border-radius: $dot-base-border-radius,
+  $dot-size: $dot-base-size,
+  $dot-margin: $dot-base-margin,
+
+  $dot-active-bg: $dot-base-active-bg,
+  $dot-active-border: $dot-base-active-border
+
+){
+  .owl {
+
+    &-dots {
+      align-items: center;
+      display: $dots-display;
+      justify-content: center;
+    }
+
+    &-dot {
+      background-color: $dot-bg;
+      border: $dot-border;
+      border-radius: $dot-border-radius;
+      display: inline-flex;
+      height: $dot-size;
+      margin-left: $dot-margin;
+      margin-right: $dot-margin;
+      width: $dot-size;
+
+      &.active {
+        background-color: $dot-active-bg;
+        border-color: $dot-active-border;
+      }
+
+    }
+
+  }
+
+  @content;
+}
+
+//----------- Estilos para los indicadores de los carruseles(splide) -----------
+//------------------------------------------------------------------------------
+@mixin dots2(
+  $dots-display:        block,
+  $dots-class:          'splide__pagination',
+  $dots-bottom:         $dot-base-bottom,
+
+  $dot-bg:              $dot-base-bg,
+  $dot-border:          $dot-base-border,
+  $dot-border-radius:   $dot-base-border-radius,
+  $dot-size:            $dot-base-size,
+  $dot-margin:          $dot-base-margin,
+
+  $dot-active-bg:       $dot-base-active-bg,
+  $dot-active-border:   $dot-base-active-border
+
+){
+
+  .#{$dots-class} {
+    bottom: $dots-bottom;
+    display: $dots-display;
+
+    &__page {
+      background: $dot-bg;
+      border: $dot-border;
+      border-radius: $dot-border-radius;
+      height: $dot-size;
+      margin-left: $dot-margin;
+      margin-right: $dot-margin;
+      opacity: 1;
+      width: $dot-size;
+
+      &.is-active {
+        background-color: $dot-active-bg;
+        border-color: $dot-active-border;
+        transform: none;
+      }
+
+    }
+
+  }
+
+  @content;
+
+}
+
+//--------------------------------- Modales ------------------------------------
+//------------------------------------------------------------------------------
+@mixin modals (
+  $bg:                $modal-bg,
+  $width:             $modal-width,
+  $width-min:         $screen-lg,
+
+  $dialog-bg:         $modal-inner-bg,
+
+  $close-bg:          $modal-close-bg,
+  $close-bg-hover:    $modal-close-bg-hover,
+  $close-icon:        ico-cross,
+  $close-color:       $modal-close-color,
+  $close-size:        $modal-close-ico-size
+){
+  background-color: $bg;
+  bottom: 100%;
+  display: block;
+  left: 0;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  transition: bottom .5s;
+  z-index: 5;
+
+  &.in {
+    bottom: 0;
+  }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  &__dialog,
+  &-dialog {
+    background-color: $dialog-bg;
+    border-radius: 0;
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    width: 95%;
+
+    @media (min-width: $width-min) {
+      width: $width;
+    }
+
+  }
+
+  &__close,
+  &-close {
+    @extend %#{$close-icon};
+    align-items: center;
+    background-color: $close-bg;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    height: 5rem;
+    justify-content: center;
+    padding: 1.5rem;
+    position: absolute;
+    right: -5rem;
+    top: 0;
+    transition: background-color .5s ease-in;
+    z-index: 1;
+
+    &::before {
+      color: $close-color;
+      font-size: $close-size;
+    }
+
+    &:hover {
+      background-color: $close-bg-hover;
+    }
+
+    @media (max-width: $screen-lg) {
+      right: 0;
+    }
+
+  }
+
+}
+
+//------------------------- Constructor skeleton -------------------------------
+//------------------------------------------------------------------------------
+@mixin build-skeleton(
+  $block-name: '',
+  $block-modifier-list: (),
+  $element-list: ()
+  ) {
+  .#{$block-name} {
+
+    //Block
+    @extend %#{$block-name} !optional;
+    //Block modifier
+    @each $m in $block-modifier-list {
+      &--#{$m} {
+        @extend %#{$block-name}--#{$m} !optional;
+      }
+    }
+
+    @each $e, $modifier in $element-list {
+      //Element
+      &__#{$e} {
+        @extend %#{$block-name}__#{$e} !optional;
+        @each $m in $modifier {
+          //Modifier
+          &--#{$m} {
+            @extend %#{$block-name}__#{$e}--#{$m} !optional;
+          }
+        }
+      }
+    }
+  }
+}
+
+//---------------------- Estilos select todos los navegadores  -----------------
+//------------------------------------------------------------------------------
+@mixin style-input (
+  $color:                     $placeholder-base-color,
+  $size:                      $placeholder-base-size,
+  $font:                      $placeholder-base-font,
+  $line-height:               $placeholder-base-line-height
+){
+  width: 100%;
+
+  &::placeholder {
+    color: $color;
+    font: $size / #{$line-height} $font;
+  }
+}
+
+//----------------------- Estilos para los label  ------------------------------
+//------------------------------------------------------------------------------
+@mixin label (
+  $label-color:               $label-base-color,
+  $label-size:                $label-base-size,
+  $label-font:                $label-base-font,
+  $label-line-height:         $label-base-line-height,
+  $label-margin:              $label-base-magin,
+  $label-transform:           $label-base-transform
+){
+  color: $label-color;
+  font: $label-size / #{$label-line-height} $label-font;
+  margin: $label-margin;
+  text-transform: $label-transform;
+}
+
+//----------------------- Estilos para los input  ------------------------------
+//------------------------------------------------------------------------------
+@mixin input (
+  $input-bg:                  $input-base-bg,
+  $input-border-radius:       $input-base-border-radius,
+  $input-border:              $input-base-border,
+  $input-color:               $input-base-color,
+  $input-font:                $input-base-font,
+  $input-height:              $input-base-height,
+  $input-line-height:         $input-base-line-height,
+  $input-padding:             $input-base-padding,
+  $input-shadow:              $input-base-shadow,
+  $input-size:                $input-base-size,
+  $input-transform:           $input-base-transform,
+  $input-transition:          $input-base-transition
+){
+
+  background-color: $input-bg;
+  border: $input-border;
+  border-radius: $input-border-radius;
+  color: $input-color;
+  font:  #{$input-size} / $input-line-height $input-font;
+  height: $input-height;
+  padding: $input-padding;
+  text-transform: $input-transform;
+  transition: $input-transition;
+
+  &:focus {
+    box-shadow: $input-shadow;
+  }
+
+}
+
+//----------------------- Imagen o color de fondo  -----------------------------
+//------------------------------------------------------------------------------
+@mixin overlay (
+  $bg:                        rgba($dark-color, .3),
+  $bottom:                    0,
+  $element:                   after,
+  $height:                    100%,
+  $top:                       0,
+  $transform:                 none,
+  $transition:                .5s background-color,
+  $width:                     100%,
+  $z-index:                   0
+){
+  &::#{$element} {
+    background: $bg;
+    bottom: $bottom;
+    content: '';
+    display: flex;
+    height: $height;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: $top;
+    transform: $transform;
+    transition: $transition;
+    width: $width;
+    z-index: $z-index;
+  }
+}
+
+
+//----------------------- Numbers Arrow -----------------------------
+//-------------------------------------------------------------------
+
+@mixin numbers-arrow (
+  $item-display:             none,
+  $item-color:               $light-color,
+  $item-font:                $p-font,
+  $item-size:                $p-size,
+
+  $item-index-bg:            $main-color,
+  $item-index-color:         $main-color,
+  $item-index-font:          $p-font,
+  $item-index-height:        3rem,
+  $item-index-size:          $p-size,
+  $item-index-margin:        1rem,
+  $item-index-transform:     rotate(20deg),
+
+  $item-count-color:         $main-color,
+  $item-count-font:          $main-font,
+  $item-count-size:          2rem
+){
+  align-items: center;
+  bottom: .8rem;
+  color: $item-color;
+  cursor: pointer;
+  display: $item-display;
+  font: $item-size $item-font;
+  justify-content: center;
+  left: auto;
+  position: absolute;
+  right: auto;
+  width: 100%;
+
+  &-index {
+    @include stick (
+      $bg: $item-index-bg,
+      $height: $item-index-height,
+      $margin: $item-index-margin,
+      $transform: $item-index-transform
+    );
+
+    align-items: center;
+    color: $item-index-color;
+    display: flex;
+    font: $item-index-size $item-index-font;
+  }
+
+  &-count {
+    color: $item-count-color;
+    font: $item-count-size $item-count-font;
+  }
+}
+
+@mixin arrows (
+  $arrow-name-left:              $arrow-base-name-left,
+  $arrow-name-right:             $arrow-base-name-right,
+  $arrow-bg-hover:               $arrow-base-bg-hover,
+  $arrow-bg:                     $arrow-base-bg,
+  $arrow-border-radius:          $arrow-base-border-radius,
+  $arrow-border:                 $arrow-base-border,
+  $arrow-color:                  $arrow-base-color,
+  $arrow-color-hover:            $arrow-base-color-hover,
+  $arrow-switch:                 $arrow-base-switch,
+  $arrow-position:               $arrow-base-position,
+  $arrow-opacity:                $arrow-base-opacity,
+  $arrow-icon:                   $arrow-base-icon,
+  $arrow-size:                   $arrow-base-size,
+  $arrow-font-size:              $arrow-base-font-size
+) {
+  &__#{$arrow-name-left},
+  &__#{$arrow-name-right} {
+    @extend %#{$arrow-icon};
+    align-items: center;
+    background-color: $arrow-bg;
+    border: $arrow-border;
+    border-radius: $arrow-border-radius;
+    color: $arrow-color;
+    cursor: pointer;
+    display: $arrow-switch;
+    font-size: $arrow-font-size;
+    height: $arrow-size;
+    justify-content: center;
+    opacity: $arrow-opacity;
+    position: $arrow-position;
+    transition-duration: .5s;
+    width: $arrow-size;
+
+    &:hover {
+      background-color: $arrow-bg-hover;
+      color: $arrow-color-hover;
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  &__#{$arrow-name-left} {
+    transform: rotate(180deg);
+  }
+}
+
+//----------------------- Media Query's -----------------------------
+//-------------------------------------------------------------------
+$breakpoints: (
+  xl:     '(min-width: #{$screen-xl})',
+  lg:     '(min-width: #{$screen-lg})',
+  lg-min: '(min-width: #{$screen-lg-min})',
+  md:     '(min-width: #{$screen-md})',
+  md-min: '(min-width: #{$screen-md-min})',
+  sm:     '(min-width: #{$screen-sm})',
+);
+
+@mixin breakpoint($device) {
+
+  @if not map-has-key($breakpoints, $device) {
+    @error 'Device value (#{$device}) is unknown';
+  }
+
+  @media #{map-get($breakpoints, $device)} {
+    @content;
+  }
+}
+
+//----------------------- BG-MID -----------------------------
+//-------------------------------------------------------------------
+@mixin bg-mid (
+  $bg:                        $main-color,
+  $display:                   block,
+  $elem:                      after,
+  $height:                    17rem,
+  $height-tablet:             45rem,
+  $height-mobile:             100rem,
+  $width:                     100%,
+  $bottom:                    7rem,
+  $z-index:                   -1
+) {
+  &::#{$elem} {
+    background: $bg;
+    bottom: $bottom;
+    content: '';
+    display: $display;
+    height: $height;
+    position: absolute;
+    width: $width;
+    z-index:  $z-index;
+
+    @media (max-width: $screen-md) {
+      height: $height-tablet;
+    }
+
+    @media (max-width: $screen-sm) {
+      height: $height-mobile;
+    }
+  }
+}
+
+//-------------------Estilos botón cookiescript ---------------------
+//-------------------------------------------------------------------
+._CookieScriptReportPageSaveSettingButton { // sass-lint:disable-line class-name-format
+  @extend %btn-primary;
+}

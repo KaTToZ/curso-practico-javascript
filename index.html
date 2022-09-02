@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/styles/imports.css">
+    <title>Figuras Geométricas</title>
+</head>
+<body>
+    <div class="figures">
+        <h1 class="figures__title">Figuras Geométricas</h1>
+        <form action=""
+              class="figures__form">
+            <div class="figures__group">
+                <div class="figures__inner">
+                    <label  class="figures__label"
+                            for="">
+                            Figura:
+                    </label>
+                    <select class="figures__select"
+                            id="js-figure">
+                        <option value="Cuadrado">Cuadrado</option>
+                        <option value="Triángulo">Triángulo</option>
+                        <option value="Circulo">Circulo</option>
+                    </select>
+                </div>
+                <div class="figures__inner">
+                    <label  class="figures__label"
+                            for="">
+                            Operación:
+                    </label>
+                    <select class="figures__select"
+                            id="js-operation">
+                        <option value="Perímetro">Perímetro</option>
+                        <option value="Área">Área</option>
+                    </select>
+                </div>
+            </div>
+            <div class="figures__group">
+                <div class="figures__inner" id="js-item-side">
+                    <label  class="figures__label"
+                            for="">
+                            Digita Lado:
+                    </label>
+                    <input  class="figures__input"
+                            id="js-input-side"
+                            type="number">
+                </div>
+                <div class="figures__inner" id="js-item-side2">
+                    <label  class="figures__label"
+                            for="">
+                            Digita Lado2:
+                    </label>
+                    <input  class="figures__input"
+                            id="js-input-side2"
+                            type="number">
+                </div>
+                <div class="figures__inner" id="js-item-height">
+                    <label  class="figures__label"
+                            for="">
+                            Digita Height:
+                    </label>
+                    <input  class="figures__input"
+                            id="js-input-height"
+                            type="number">
+                </div>
+                <div class="figures__inner" id="js-item-base">
+                    <label  class="figures__label"
+                            for="">
+                            Digita Base:
+                    </label>
+                    <input  class="figures__input"
+                            id="js-input-base"
+                            type="number">
+                </div>
+            </div>
+            <div class="figures__group">
+                <div class="figures__inner">
+                    <label  class="figures__label"
+                            for="">
+                            Resultado:
+                    </label>
+                    <input  class="figures__input figures__input--result"
+                            id="js-input-result"
+                            type="text"
+                            disabled>
+                </div>
+            </div>
+            <div class="figures__group figures__group--button">
+                <button class="figures__button"
+                        id="js-button"
+                        type="button">Calcular
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="dist/js/forms.js"></script>
+</body>
+</html>
